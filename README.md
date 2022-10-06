@@ -33,6 +33,7 @@ If you find this code useful for your work, please cite our paper as
   title={Stop Wasting My Time! Saving Days of ImageNet and BERT Training with Latest Weight Averaging},
   author={Kaddour, Jean},
   journal={arXiv preprint arXiv:2209.14981},
-  year={2022}
+  year={2022},
+  url={https://arxiv.org/abs/2209.14981}
 }
 ```
