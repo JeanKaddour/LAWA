@@ -173,7 +173,7 @@ parser.add_argument("--save_path", type=str, default="./save/")
 ############################## LAWA ##############################
 parser.add_argument("--avg_start_idx", type=int, default=10)
 parser.add_argument("--avg_end_idx", type=int, default=20)
-parser.add_argument("--avg_method", type=str, default="swa")
+parser.add_argument("--avg_method", type=str, default="uni")
 parser.add_argument("--avg_dir", type=str, default="./save/")
 parser.add_argument("--avg_ema_decay", type=float, default=0.9)
 parser.add_argument("--avg", type=str2bool, default=False)

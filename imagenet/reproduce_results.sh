@@ -1,5 +1,5 @@
 #!/bin/bash
-avgmethods=(swa)
+avgmethods=(uni)
 avg_saved_checkpoints_end=(30 40 50 60 70 80 90)
 
 # unaveraged model checkpoints (i.e,. don't use LAWA)

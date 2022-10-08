@@ -27,7 +27,7 @@ def is_float_dtype(dtype):
 
 def average_model(args, model: torch.nn.Module):
     avg_model = None
-    param_or_buffer_names_no_ema = set()
+    param_or_buffer_names_not_to_be_averaged = set() # in case you don't want to average certain params
     num_avg_models = 0
 
     for epoch in range(
@@ -44,15 +44,15 @@ def average_model(args, model: torch.nn.Module):
             avg_model = copy.deepcopy(model)
             avg_model.requires_grad_(False)
         if num_avg_models > 1:
-            if args.avg_method == "swa":
-                swa_update(
-                    model, avg_model, param_or_buffer_names_no_ema, num_avg_models
+            if args.avg_method == "uni": # Uniform averaging
+                uni_update(
+                    model, avg_model, param_or_buffer_names_not_to_be_averaged, num_avg_models
                 )
-            elif args.avg_method == "ema":
+            elif args.avg_method == "ema": # exponentially decaying averaging
                 ema_update(
                     model,
                     avg_model,
-                    param_or_buffer_names_no_ema,
+                    param_or_buffer_names_not_to_be_averaged,
                     decay=args.avg_ema_decay,
                 )
 
@@ -97,7 +97,7 @@ def ema_update(
 
 
 @torch.no_grad()
-def swa_update(model, avg_model, param_or_buffer_names_no_ema, num_avg_models):
+def uni_update(model, avg_model, param_or_buffer_names_no_ema, num_avg_models):
     def avg_fn(averaged_model_parameter, model_parameter, num_avg_models):
         return averaged_model_parameter + (
             model_parameter - averaged_model_parameter

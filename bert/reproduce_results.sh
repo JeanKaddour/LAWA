@@ -1,5 +1,5 @@
 #!/bin/bash
-avgmethods=(swa)
+avgmethods=(uni)
 avg_saved_checkpoints_end=(80 90 100 110 120 130 140 150 160 170 180 190)
 cd fairseq
 

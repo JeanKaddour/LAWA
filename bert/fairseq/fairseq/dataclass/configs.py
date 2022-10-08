@@ -1083,7 +1083,7 @@ class AvgConfig(FairseqDataclass):
     avg_dir: str = field(
         default="/home/jean/projects/fairseq/multirun/2022-09-13/17-01-07/0/checkpoints/"
     )
-    avg_method: str = field(default="swa")
+    avg_method: str = field(default="uni")
     avg_ema_decay: float = field(default=0.9)
 
 
