@@ -25,7 +25,7 @@ def is_float_dtype(dtype):
     )
 
 
-def average_model(args, model: torch.nn.Module):
+def average_model(args, model: torch.nn.Module) -> torch.nn.Module:
     avg_model = None
     param_or_buffer_names_not_to_be_averaged = set() # in case you don't want to average certain params
     num_avg_models = 0
@@ -101,7 +101,7 @@ def uni_update(model, avg_model, param_or_buffer_names_no_ema, num_avg_models):
     def avg_fn(averaged_model_parameter, model_parameter, num_avg_models):
         return averaged_model_parameter + (
             model_parameter - averaged_model_parameter
-        ) / (num_avg_models)
+        ) / num_avg_models
 
     for (name, current_params), (_, ma_params) in zip(
         list(model.named_parameters()), list(avg_model.named_parameters())
