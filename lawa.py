@@ -16,7 +16,7 @@ class LAWAScheduler:
     k: int = 10
     steps: int = 0
     start_steps: int = 1000
-    reset_optimizer: bool = True
+    reset_optimizer: bool = False
     enabled: bool = True
     keep_separate_avg_model: bool = True
     avg_model: Optional[torch.nn.Module] = None
