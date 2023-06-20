@@ -4,7 +4,7 @@
 Training vision or language models on large datasets can take days, if not weeks. We show that averaging the weights of the k latest checkpoints, each collected at the end of an epoch, can speed up the training progression in terms of loss and accuracy by dozens of epochs, corresponding to time savings up to ~68 and ~30 GPU hours when training a ResNet50 on ImageNet and RoBERTa-Base model on WikiText-103, respectively. We also provide the code and model checkpoint trajectory to reproduce the results and facilitate research on reusing historical weights for faster convergence.
 
 # Codebase structure
-* There is a standalone LAWA Scheduler in `lawa_scheduler.py`, which can be imported into any PyTorch training loop
+* There is a standalone LAWA Scheduler in `lawa.py`, which can be imported into any PyTorch training loop
 * Besides that, this repo contains two forks, one for each of the `bert` and `imagenet` experiments
   * the ImageNet code is forked from [PyTorch examples](https://github.com/pytorch/examples/tree/main/imagenet)
   * the roBERTa code is forked from [fairseq](https://github.com/facebookresearch/fairseq)
